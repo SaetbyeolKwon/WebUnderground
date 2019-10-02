@@ -55,19 +55,19 @@ var loader = new THREE.GLTFLoader();
         podtop = gltf.scene;
         group.add( podtop );
     });
-    loader.load('HLO_Pod_Bottom_Front.gltf', function ( gltf ) {
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Front.gltf?v=1562770586202', function ( gltf ) {
         bottomf = gltf.scene;
         group.add( bottomf );
     });
-    loader.load('HLO_Pod_Bottom_Rear.gltf', function ( gltf ) {
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Rear.gltf?v=1562770583865', function ( gltf ) {
         bottomr = gltf.scene;
         group.add( bottomr );
     });
-    loader.load('HLO_Pod_Bottom_Center.gltf', function ( gltf ) {
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Center.gltf?v=1562770589036', function ( gltf ) {
         bottomc = gltf.scene;
         group.add( bottomc );
     });
-    loader.load('HLO_Sled.gltf', function ( gltf ) {
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Sled.gltf?v=1562770573102', function ( gltf ) {
         sled = gltf.scene;
         group.add( sled );
     });
