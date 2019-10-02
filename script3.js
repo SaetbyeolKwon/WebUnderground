@@ -2,11 +2,11 @@
 
 var podtop, bottomc, bottomf, bottomr, sled;
 var models = {
-    'podtop': {obj: '/objects/HLO_Pod_Top.gltf'},
-    'bottomf': {obj:'/objects/HLO_Pod_Bottom_Front.gltf'},
-    'bottomr': {obj:'/objects/HLO_Pod_Bottom_Rear.gltf'},
-    'bottomc': {obj:'/objects/HLO_Pod_Bottom_Center.gltf'},
-    'sled': {obj:'/objects/HLO_Sled.gltf'}
+    'podtop': {obj: 'https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Top.gltf?v=1562726873480'},
+    'bottomf': {obj:'https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Front.gltf?v=1562770586202'},
+    'bottomr': {obj:'https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Rear.gltf?v=1562770583865'},
+    'bottomc': {obj:'https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Center.gltf?v=1562770589036'},
+    'sled': {obj:'https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Sled.gltf?v=1562770573102'}
 };
 var x= 10,y=5,z=10;
 var status = "0";
