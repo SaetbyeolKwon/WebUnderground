@@ -50,8 +50,8 @@ var mouse = new THREE.Vector2();
 // loading a .gtlf file
 var group = new THREE.Group();
 var loader = new THREE.GLTFLoader();
-    loader.setPath( '/objects/' );
-    loader.load('HLO_Pod_Top.gltf', function ( gltf ) {
+//     loader.setPath( '/objects/' );
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Top.gltf?v=1562726873480', function ( gltf ) {
         podtop = gltf.scene;
         group.add( podtop );
     });
