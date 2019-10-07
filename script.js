@@ -53,7 +53,7 @@ var ambientLight = new THREE.AmbientLight(0xffffff);
 var group = new THREE.Group();
 var loader = new THREE.GLTFLoader();
     // loader.setPath( '/objects/' );
-    loader.load('/objects/MTA22.glb', function ( gltf ) {
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FMTA22.glb?v=1570487968977', function ( gltf ) {
         podtop = gltf.scene;
         group.add( podtop );
     });
