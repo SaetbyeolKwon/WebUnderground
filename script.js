@@ -10,7 +10,7 @@ var sitting;
 // var x = [-2, -3, 0], y = [27,-30,35], z = [13,0,15];
 
 //camera random position
-var x = Math.random()*10, y = Math.random()*10, z = Math.random()*30 ;
+// var x = Math.random()*10, y = Math.random()*10, z = Math.random()*30 ;
 
 // var status = "0";
 var maxRotation = 2 * Math.PI;
@@ -19,8 +19,8 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 1000);
 
 // Set camera position.
-camera.position.set(x,y,z);
-// camera.position.z = 30;
+// camera.position.set(x,y,z);
+camera.position.z = 60;
 console.log("Camera is working");
 
 var container = document.getElementById('container');
