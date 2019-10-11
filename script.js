@@ -1,22 +1,27 @@
-var podtop, bottomc, bottomf, bottomr, sled;
-var models = {
-    'podtop': {obj: '/objects/MTA22.glb'},
-};
-var x= 10,y=5,z=10;
+// var podtop, bottomc, bottomf, bottomr, sled;
+// var models = {
+//     'mta': {obj: '/objects/MTA.glb'},
+// };
+var mta;
+// var x= -2,y=27,z=13;
+// var x= -3,y=-30,z=0;
+var x= -3,y=-17,z=-7;
 var status = "0";
 var maxRotation = 2 * Math.PI;
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 1000);
 
+// Set camera position.
 camera.position.set(x,y,z);
-// camera.position.z = 10;
+// camera.position.z = 30;
 console.log("Camera is working");
 
 var container = document.getElementById('container');
 
 var renderer = new THREE.WebGLRenderer({antialias: true});
-    renderer.setClearColor(0xd6d6d6);
+    // renderer.setClearColor(0xd6d6d6);
+    renderer.setClearColor(0x000000);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     //document자리에 페이지에서 원하는 div를 설정하면 그곳에 render.
@@ -27,7 +32,7 @@ controls.enableDamping = true;
 controls.campingFactor = 0.25;
 controls.enableZoom = true;
 controls.minDistance = 1;
-controls.maxDistance = 40;
+controls.maxDistance = 100;
 
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
@@ -53,26 +58,10 @@ var ambientLight = new THREE.AmbientLight(0xffffff);
 var group = new THREE.Group();
 var loader = new THREE.GLTFLoader();
     // loader.setPath( '/objects/' );
-    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FMTA22.glb?v=1570487968977', function ( gltf ) {
-        podtop = gltf.scene;
-        group.add( podtop );
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FMTA.glb?v=1570769787711', function ( gltf ) {
+        mta = gltf.scene;
+        group.add( mta );
     });
-    // loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Front.gltf?v=1562770586202', function ( gltf ) {
-    //     bottomf = gltf.scene;
-    //     group.add( bottomf );
-    // });
-    // loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Rear.gltf?v=1562770583865', function ( gltf ) {
-    //     bottomr = gltf.scene;
-    //     group.add( bottomr );
-    // });
-    // loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Pod_Bottom_Center.gltf?v=1562770589036', function ( gltf ) {
-    //     bottomc = gltf.scene;
-    //     group.add( bottomc );
-    // });
-    // loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FHLO_Sled.gltf?v=1562770573102', function ( gltf ) {
-    //     sled = gltf.scene;
-    //     group.add( sled );
-    // });
 
     scene.add( group );
 
@@ -163,11 +152,25 @@ function animate(){
 
 function render(){
 
-    if ( podtop !== undefined ) {
-        group.rotation.y = (group.rotation.y + 0.005) % maxRotation;
-    }
+    // if ( mta !== undefined ) {
+    //     group.rotation.y = (group.rotation.y + 0.005) % maxRotation;
+    // }
+    group.rotation.z += 0.005;
+
+    this.tl = new TimelineMax({delay:.3});
+    var duration = 30;
+
+    // var x= -3,y=-30,z=0;
+    // this.tl.to(camera.position, duration, {x: -3, y:-30, z:0, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(camera.position, duration, {x: -3, y:-30, z:0, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(camera.position, duration, {y: 100, ease: Expo.easeOut});
+    // this.tl.to(camera.position, duration, {x: 300, ease: Expo.easeOut});
+    // this.tl.to(bottomc.position, duration, {y: -3, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(bottomf.position, duration, {x: 3, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(bottomr.position, duration, {x: -3, ease: Expo.easeOut}, "-=duration");
 
     renderer.render(scene, camera);
+    // console.log(camera.position);
 }
 
 
