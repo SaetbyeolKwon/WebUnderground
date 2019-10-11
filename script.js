@@ -3,6 +3,7 @@
 //     'mta': {obj: '/objects/MTA.glb'},
 // };
 var mta;
+var sitting;
 // var x= -2,y=27,z=13;
 // var x= -3,y=-30,z=0;
 var x= -3,y=-17,z=-7;
@@ -54,6 +55,16 @@ var ambientLight = new THREE.AmbientLight(0xffffff);
 //     });  
 // }
 
+
+//fbx file loader(doesn't work)
+// var loader = new THREE.FBXLoader();
+// loader.load( 'objects/SUrGICAL_INSTRUMENT.fbx', function ( fbx ) {
+//     sitting = fbx.scene;
+//     group.add( sitting );
+// });
+// scene.add( group );
+
+
 // loading a .gtlf file
 var group = new THREE.Group();
 var loader = new THREE.GLTFLoader();
@@ -62,8 +73,8 @@ var loader = new THREE.GLTFLoader();
         mta = gltf.scene;
         group.add( mta );
     });
-
     scene.add( group );
+
 
 init();
 animate();
