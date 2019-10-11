@@ -10,7 +10,7 @@ var sitting;
 // var x = [-2, -3, 0], y = [27,-30,35], z = [13,0,15];
 
 //camera random position
-var x = Math.random()*10, y = Math.random()*30, z = Math.random()*30 ;
+var x = Math.random()*10, y = Math.random()*10, z = Math.random()*30 ;
 
 // var status = "0";
 var maxRotation = 2 * Math.PI;
@@ -96,8 +96,8 @@ animate();
 
 function init(){
     // this.tl = new TimelineMax({delay:.3});
-    var duration = 6;
-    var yrand = Math.random()*20;
+    var duration = 7;
+    var yrand = Math.random()*10;
 
     var tl = new TimelineLite({delay:.3});
     tl.to(group.position, duration, {y:0, ease: Expo.easeOut})
