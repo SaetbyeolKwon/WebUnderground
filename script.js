@@ -4,20 +4,26 @@
 // };
 var mta;
 var sitting;
+
+//camera position three points
 // var x= -2,y=27,z=13;
 // var x= -3,y=-30,z=0;
-// var x=0,y=35,z=15;
-var x = [-2, -3, 0];
-var y = [27,-30,35];
-var z = [13,0,15];
-var status = "0";
+// var x= 0, y= 35, z= 15;
+
+//camera position array
+// var x = [-2, -3, 0], y = [27,-30,35], z = [13,0,15];
+
+//camera random position
+var x = Math.random()*10, y = Math.random()*30, z = Math.random()*30 ;
+
+// var status = "0";
 var maxRotation = 2 * Math.PI;
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 1000);
 
 // Set camera position.
-camera.position.set(x[2],y[2],z[2]);
+camera.position.set(x,y,z);
 // camera.position.z = 30;
 console.log("Camera is working");
 
