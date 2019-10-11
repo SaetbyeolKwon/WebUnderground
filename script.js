@@ -1,7 +1,3 @@
-// var podtop, bottomc, bottomf, bottomr, sled;
-// var models = {
-//     'mta': {obj: '/objects/MTA.glb'},
-// };
 var mta;
 var sitting;
 
@@ -47,11 +43,18 @@ controls.maxDistance = 100;
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2();
 
+
+//camera perspective
+var cameraRig, activeCamera, activeHelper;
+var cameraPerspective;
+var cameraPerspectiveHelper;
+var aspect = window.innerWidth / window.innerHeight;
+
 //Light
 var ambientLight = new THREE.AmbientLight(0xffffff);
 var ambientLight2 = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    // scene.add(ambientLight2);
+    scene.add(ambientLight2);
     if(ambientLight && ambientLight2){
         console.log("ambientLight2 is working.")
     }
@@ -92,7 +95,22 @@ init();
 animate();
 
 function init(){
-    // console.log("init is working");
+    // this.tl = new TimelineMax({delay:.3});
+    var duration = 6;
+    var yrand = Math.random()*20;
+
+    var tl = new TimelineLite({delay:.3});
+    tl.to(group.position, duration, {y:0, ease: Expo.easeOut})
+    .to(group.position, duration, {y:yrand, ease: Expo.easeOut})
+    .to(group.position, duration, {y:0, ease: Expo.easeOut});
+
+    // this.tl.to(group.position, duration, {x: -3, y:-30, z:0, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(group.position, duration, {x: -3, y:-30, z:0, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(group.position, duration, {y: 20, repeat: 10, ease: Expo.easeOut}, "-=duration");
+    // this.tl.to(group.position, duration, {y:20, ease: Expo.easeOut}, "-=duration");
+    // this.tl.fromTo(group.position, duration, {y:20}, {y:0}, "-=duration");
+
+    console.log("tween is working");
 }
 
 window.addEventListener('resize', onWindowResize, false);
@@ -179,18 +197,6 @@ function render(){
     //     group.rotation.y = (group.rotation.y + 0.005) % maxRotation;
     // }
     group.rotation.z += 0.005;
-
-    this.tl = new TimelineMax({delay:.3});
-    var duration = 30;
-
-    // var x= -3,y=-30,z=0;
-    // this.tl.to(camera.position, duration, {x: -3, y:-30, z:0, ease: Expo.easeOut}, "-=duration");
-    // this.tl.to(camera.position, duration, {x: -3, y:-30, z:0, ease: Expo.easeOut}, "-=duration");
-    // this.tl.to(camera.position, duration, {y: 100, ease: Expo.easeOut});
-    // this.tl.to(camera.position, duration, {x: 300, ease: Expo.easeOut});
-    // this.tl.to(bottomc.position, duration, {y: -3, ease: Expo.easeOut}, "-=duration");
-    // this.tl.to(bottomf.position, duration, {x: 3, ease: Expo.easeOut}, "-=duration");
-    // this.tl.to(bottomr.position, duration, {x: -3, ease: Expo.easeOut}, "-=duration");
 
     renderer.render(scene, camera);
     // console.log(camera.position);
