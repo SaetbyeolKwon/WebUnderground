@@ -6,7 +6,10 @@ var mta;
 var sitting;
 // var x= -2,y=27,z=13;
 // var x= -3,y=-30,z=0;
-var x= -3,y=-17,z=-7;
+// var x=0,y=35,z=15;
+var x = [-2, -3, 0];
+var y = [27,-30,35];
+var z = [13,0,15];
 var status = "0";
 var maxRotation = 2 * Math.PI;
 
@@ -14,7 +17,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 1000);
 
 // Set camera position.
-camera.position.set(x,y,z);
+camera.position.set(x[2],y[2],z[2]);
 // camera.position.z = 30;
 console.log("Camera is working");
 
@@ -40,9 +43,11 @@ var mouse = new THREE.Vector2();
 
 //Light
 var ambientLight = new THREE.AmbientLight(0xffffff);
+var ambientLight2 = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    if(ambientLight){
-        console.log("ambientLight is working.")
+    // scene.add(ambientLight2);
+    if(ambientLight && ambientLight2){
+        console.log("ambientLight2 is working.")
     }
 
 //Multiple GLTFs Loader
@@ -69,11 +74,12 @@ var ambientLight = new THREE.AmbientLight(0xffffff);
 var group = new THREE.Group();
 var loader = new THREE.GLTFLoader();
     // loader.setPath( '/objects/' );
-    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FMTA.glb?v=1570769787711', function ( gltf ) {
+    loader.load('https://cdn.glitch.com/4e61cc02-40e5-4e28-901f-eb558a51a1d5%2FMTA3.glb?v=1570811416051', function ( gltf ) {
         mta = gltf.scene;
         group.add( mta );
     });
     scene.add( group );
+    group.rotation.x = -90;
 
 
 init();
